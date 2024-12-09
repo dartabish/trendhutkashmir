@@ -23,12 +23,15 @@ const Hero = () => {
           In the meantime, feel free to reach out or visit us!
         </p>
         <div className="flex gap-5">
-          <button className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow hover:bg-gray-100 hover:text-blue-700">
+          <a
+            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow hover:bg-gray-100 hover:text-blue-700 cursor-pointer"
+            href="#contact"
+          >
             Contact Us
-          </button>
-          <button className="px-6 py-3 bg-transparent border border-white text-white font-semibold rounded-lg shadow hover:bg-white hover:text-blue-900">
+          </a>
+          <a className="px-6 py-3 bg-transparent border border-white text-white font-semibold rounded-lg shadow hover:bg-white hover:text-blue-900 cursor-pointer">
             Visit Us
-          </button>
+          </a>
         </div>
       </div>
     </div>

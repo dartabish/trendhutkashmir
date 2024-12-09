@@ -17,15 +17,23 @@ const ContactAndVisit = () => {
       <br />
       <br />
 
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col space-y-4">
-          <div class="w-full bg-gray-50 p-10 rounded-lg">
+      <div className="container mx-auto px-4">
+        <div id="contact" className="flex flex-col space-y-4">
+          <div className="w-full bg-gray-50 p-10 rounded-lg">
             <h5 className="font-semibold mb-4">Socials</h5>
             <div className="flex gap-4 text-blue-700 text-3xl">
-              <a href="">
+              <a
+                href="https://www.instagram.com/trendhutkashmir?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaInstagram className="" />
               </a>
-              <a href="">
+              <a
+                href="https://wa.me/+919797125797"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaWhatsapp />
               </a>
               <a href="">
@@ -36,7 +44,7 @@ const ContactAndVisit = () => {
               </a>
             </div>
           </div>
-          <div class="w-full bg-gray-50 p-10 rounded-lg">
+          <div className="w-full bg-gray-50 p-10 rounded-lg">
             <h5 className="font-semibold mb-4">Email</h5>
             <div className="text-blue-700">
               <a href="mailto:trendhutkashmir@gmail.com">
@@ -47,9 +55,9 @@ const ContactAndVisit = () => {
           <div className="w-full bg-gray-50 p-10 rounded-lg">
             <h5 className="font-semibold mb-4">Mobile</h5>
             <div className="text-blue-700">
-              <a href="tel:+917006890263">+91 7006890263</a>
-              <br />
               <a href="tel:+919797125797">+91 9797125797</a>
+              <br />
+              <a href="tel:+919419658432">+91 9419658432</a>
             </div>
           </div>
         </div>
