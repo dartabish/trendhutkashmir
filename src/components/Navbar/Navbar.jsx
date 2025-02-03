@@ -10,9 +10,9 @@ import {
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
+  { name: 'Packages', href: '#', current: false },
   { name: 'About', href: '#', current: false },
   { name: 'Contact', href: '#contact', current: false },
-  { name: 'Visit', href: '#', current: false },
 ];
 
 function classNames(...classes) {
@@ -42,7 +42,7 @@ export default function Example() {
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-evenly">
             {/* Logo */}
             <div className="flex flex-shrink-0 items-center">
-              <span className="text-white text-2xl">
+              <span className="text-white text-3xl">
                 Trendhut
                 <span className="text-blue-400"> Kashmir</span>
               </span>
@@ -58,7 +58,7 @@ export default function Example() {
                       item.current
                         ? 'bg-gray-900 text-white'
                         : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                      'rounded-md px-3 py-2 text-sm font-medium'
+                      'rounded-md px-3 py-2 text-lg font-medium'
                     )}
                   >
                     {item.name}

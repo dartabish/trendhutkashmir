@@ -25,12 +25,12 @@ const Hero = () => {
         <div className="flex gap-5">
           <a
             className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow hover:bg-gray-100 hover:text-blue-700 cursor-pointer"
-            href="#contact"
           >
-            Contact Us
+            Explore Packages
           </a>
-          <a className="px-6 py-3 bg-transparent border border-white text-white font-semibold rounded-lg shadow hover:bg-white hover:text-blue-900 cursor-pointer">
-            Visit Us
+          <a className="px-6 py-3 bg-transparent border border-white text-white font-semibold rounded-lg shadow hover:bg-white hover:text-blue-900 cursor-pointer"
+          href="#contact">
+          Contact Us
           </a>
         </div>
       </div>

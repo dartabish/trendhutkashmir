@@ -60,6 +60,14 @@ const ContactAndVisit = () => {
               <a href="tel:+919419658432">+91 9419658432</a>
             </div>
           </div>
+          <div className="w-full bg-gray-50 p-10 rounded-lg">
+            <h5 className="font-semibold mb-4">Location</h5>
+            <div className="text-blue-700">
+              <a href="https://maps.app.goo.gl/ADiTN9VeucuRsRih9" target="_blank" rel="noopener noreferrer">
+                Habak, Srinagar, Jammu and Kashmir, 190006
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
