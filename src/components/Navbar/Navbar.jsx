@@ -8,6 +8,7 @@ import {
   MenuItems,
 } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 const navigation = [
   { name: 'Packages', href: '#', current: false },
@@ -41,12 +42,14 @@ export default function Example() {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-evenly">
             {/* Logo */}
-            <div className="flex flex-shrink-0 items-center">
-              <span className="text-white text-3xl">
-                Trendhut
-                <span className="text-blue-400"> Kashmir</span>
-              </span>
-            </div>
+            <Link to={`/`}>
+              <div className="flex flex-shrink-0 items-center">
+                <span className="text-white text-3xl">
+                  Trendhut
+                  <span className="text-blue-400"> Kashmir</span>
+                </span>
+              </div>
+            </Link>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 {navigation.map(item => (

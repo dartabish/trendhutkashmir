@@ -13,6 +13,17 @@
 .section-title {
   font-size: 42px;
   font-weight: 600;
-  color: #344CB7;
+  color: #344cb7;
   text-align: center;
+  margin-bottom: 30px;
+}
+
+.btn {
+  @apply font-bold py-2 px-4 rounded;
+}
+.btn-blue {
+  @apply bg-blue-500 text-white;
+}
+.btn-blue:hover {
+  @apply bg-blue-700;
 }

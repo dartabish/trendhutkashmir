@@ -14,23 +14,23 @@ const Hero = () => {
 
       <div className="px-3 absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 text-white">
         <h1 className="text-6xl lg:text-7xl font-medium sm:text-center tracking-tighter">
-          Exciting packages coming soon!
+          Explore new horizons with us!
         </h1>
-        <p className="text-3xl tracking-tight"></p>
         <p className="text-white text-lg text-center">
-          Stay tuned for amazing travel deals.
-          <br />
-          In the meantime, feel free to reach out or visit us!
+          Grab the best deals on our exclusive tour packages.
         </p>
         <div className="flex gap-5">
           <a
             className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow hover:bg-gray-100 hover:text-blue-700 cursor-pointer"
+            href="#packages"
           >
             Explore Packages
           </a>
-          <a className="px-6 py-3 bg-transparent border border-white text-white font-semibold rounded-lg shadow hover:bg-white hover:text-blue-900 cursor-pointer"
-          href="#contact">
-          Contact Us
+          <a
+            className="px-6 py-3 bg-transparent border border-white text-white font-semibold rounded-lg shadow hover:bg-white hover:text-blue-900 cursor-pointer"
+            href="#contact"
+          >
+            Contact Us
           </a>
         </div>
       </div>
