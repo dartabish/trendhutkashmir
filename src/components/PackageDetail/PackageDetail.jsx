@@ -76,7 +76,7 @@ const PackageDetail = ({ packages }) => {
           </ul>
         </div>
       </div>
-      <div className="sticky bottom-0 left-0 w-full bg-white shadow-lg py-2 px-4 flex justify-between items-center md:static">
+      {/* <div className="sticky bottom-0 left-0 w-full bg-white shadow-lg py-2 px-4 flex justify-between items-center md:static">
         <a
           href="https://wa.me/+919797125797"
           target="_blank"
@@ -90,7 +90,7 @@ const PackageDetail = ({ packages }) => {
         <button className="bg-blue-500 text-white rounded-full py-2 px-6">
           Book Now
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -11,7 +11,7 @@
 
 /* Utility Classes */
 .section-title {
-  font-size: 42px;
+  font-size: clamp(24px, 4vw + 1rem, 42px);
   font-weight: 600;
   color: #344cb7;
   text-align: center;

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 const PackageCard = ({ packageCard }) => {
-  console.log(packageCard.id);
   return (
     <div className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
       <div
