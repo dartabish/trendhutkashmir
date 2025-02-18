@@ -1,13 +1,14 @@
+// App.jsx
 import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import AppRoutes from './routes/Routes';
+import AppRoutes from './routes/Routes'; 
 import Footer from './components/Footer/Footer';
-import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop'; 
 
 const App = () => {
   return (
     <Router>
-      <ScrollToTop />
+      <ScrollToTop /> 
       <Navbar />
       <AppRoutes />
       <Footer />
