@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
   FaBed,
@@ -9,11 +9,14 @@ import {
   FaWhatsapp,
 } from 'react-icons/fa';
 import ItineraryAccordion from '../ItineraryAccordion/ItineraryAccordion';
+import BookingModal from '../BookingModal/BookingModal';
+
 
 const PackageDetail = ({ packages }) => {
   const { id } = useParams();
   const selectedPackage = packages.find(pkg => pkg.id === parseInt(id));
   const { pkgId, title, description, image, duration, inclusions } = selectedPackage;
+  const [open, setOpen] = useState(false);
 
   if (!selectedPackage) {
     return <h2>Package not found</h2>;
@@ -54,7 +57,7 @@ const PackageDetail = ({ packages }) => {
           <h3 className="text-gray-800 mt-1">{duration}</h3>
         </div>
         <div className="my-5 mx-5 package-description">
-          <p className="italic">{description}</p>
+          <div className="italic">{description}</div>
         </div>
         <div className="package-inclusions border border-gray-300 p-5">
           <ul className="list-none space-y-2">
@@ -76,28 +79,28 @@ const PackageDetail = ({ packages }) => {
           </ul>
         </div>
       </div>
-
       <div className="my-5 mx-5">
         <h2 className="text-xl font-semibold text-blue-950">Itinerary</h2>
         <div className="my-5">
           <ItineraryAccordion selectedPackage={selectedPackage} />
         </div>
       </div>
-
       <div className="sticky bottom-0 left-0 w-full bg-white shadow-lg py-2 px-4 flex justify-between items-center md:static">
         <a
           href="https://wa.me/+919797125797"
           target="_blank"
           rel="noopener noreferrer"
-          className="mx-auto bg-green-500 text-white rounded-full py-2 px-4 flex items-center space-x-2"
+          className=" bg-green-500 text-white rounded-full py-2 px-4 flex items-center space-x-2"
         >
           <FaWhatsapp className="text-white" />
           <span>Send Enquiry</span>
         </a>
 
-        {/* <button className="bg-blue-500 text-white rounded-full py-2 px-6">
+        <button className="bg-blue-500 text-white rounded-full py-2 px-6"
+        onClick={()=>setOpen(true)}>
           Book Now
-        </button> */}
+        </button>
+        {open && <BookingModal open={open} setOpen={setOpen} selectedPackage={selectedPackage}/>}
       </div>
     </div>
   );
