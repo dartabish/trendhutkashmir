@@ -40,7 +40,7 @@ const ContactForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="max-w-lg mx-auto p-6 bg-white text-gray-700 shadow-md rounded-lg"
+      className="p-6 bg-white text-gray-700 shadow-md rounded-lg"
     >
       {loading ? (
         <div className="flex justify-center items-center">

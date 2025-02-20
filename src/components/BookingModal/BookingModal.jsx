@@ -22,7 +22,7 @@ export default function BookingModal({open, setOpen, selectedPackage}) {
             className="relative transform overflow-hidden rounded-lg bg-dark text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-lg data-closed:sm:translate-y-0 data-closed:sm:scale-95"
           >
             <div className='text-white flex flex-col'>
-              <span className='ms-auto' onClick={(()=>setOpen(false))}>Close</span>
+              <span className='ms-auto cursor-pointer' onClick={(()=>setOpen(false))}>Close</span>
               <BookingForm setOpen={setOpen}/>
             </div>
           </DialogPanel>
