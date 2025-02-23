@@ -21,6 +21,8 @@ const AppRoutes = () => {
         }
       />
 
+      
+
       <Route
         path="/packages/:id"
         element={<PackageDetail packages={packages} />}

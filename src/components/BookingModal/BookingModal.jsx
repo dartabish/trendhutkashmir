@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react'
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
-import BookingForm from '../BookingForm/BookingForm'
+import { useState } from 'react';
+import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
+import BookingForm from '../BookingForm/BookingForm';
+import { MdCancel } from "react-icons/md";
 
-export default function BookingModal({open, setOpen, selectedPackage}) {
+
+export default function BookingModal({open, setOpen, title}) {
   
 
   return (
@@ -22,8 +23,10 @@ export default function BookingModal({open, setOpen, selectedPackage}) {
             className="relative transform overflow-hidden rounded-lg bg-dark text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-lg data-closed:sm:translate-y-0 data-closed:sm:scale-95"
           >
             <div className='text-white flex flex-col'>
-              <span className='ms-auto cursor-pointer' onClick={(()=>setOpen(false))}>Close</span>
-              <BookingForm setOpen={setOpen}/>
+              <span className='ms-auto cursor-pointer' onClick={(()=>setOpen(false))}>
+              <MdCancel className="h-6 w-6" />
+              </span>
+              <BookingForm setOpen={setOpen} title={title}/>
             </div>
           </DialogPanel>
         </div>

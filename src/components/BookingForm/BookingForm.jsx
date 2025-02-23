@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import emailjs from 'emailjs-com';
 
-const ContactForm = () => {
+const BookingForm = ({ title, onClose }) => {
   const {
     register,
     handleSubmit,
@@ -40,8 +40,17 @@ const ContactForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="p-6 bg-white text-gray-700 shadow-md rounded-lg"
+      className="p-6 bg-white text-gray-700 shadow-md rounded-lg relative"
     >
+      {/* Close button */}
+      {/* <button
+        type="button"
+        onClick={onClose}
+        className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 focus:outline-none"
+      >
+        <MdCancel className="h-6 w-6" />
+      </button> */}
+
       {loading ? (
         <div className="flex justify-center items-center">
           <svg
@@ -69,104 +78,110 @@ const ContactForm = () => {
         <h1 className="text-center text-green-500 font-bold text-2xl">Thank you! Your message has been sent.</h1>
       ) : (
         <>
-          <h2 className="text-2xl font-bold mb-6 text-center">Contact Us</h2>
-          
-          <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2" htmlFor="firstName">
-              First Name
-            </label>
-            <input
-              {...register('firstName', { required: 'First name is required' })}
-              id="firstName"
-              placeholder="John"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {errors.firstName && <p className="text-red-500 mt-1">{errors.firstName.message}</p>}
+          <h2 className="text-2xl font-bold mb-6 text-center">
+            {title ? title : 'Contact Us!'}
+          </h2>
+
+          {/* Form Grid */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="mb-4">
+              <label className="block text-gray-700 font-semibold mb-2" htmlFor="firstName">
+                First Name
+              </label>
+              <input
+                {...register('firstName', { required: 'First name is required' })}
+                id="firstName"
+                placeholder="John"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              {errors.firstName && <p className="text-red-500 mt-1">{errors.firstName.message}</p>}
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700 font-semibold mb-2" htmlFor="lastName">
+                Last Name
+              </label>
+              <input
+                {...register('lastName', { required: 'Last name is required' })}
+                id="lastName"
+                placeholder="Doe"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              {errors.lastName && <p className="text-red-500 mt-1">{errors.lastName.message}</p>}
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700 font-semibold mb-2" htmlFor="email">
+                Email
+              </label>
+              <input
+                {...register('email', {
+                  required: 'Email is required',
+                  pattern: {
+                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                    message: 'Enter a valid email address',
+                  },
+                })}
+                id="email"
+                type="email"
+                placeholder="john.doe@example.com"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              {errors.email && <p className="text-red-500 mt-1">{errors.email.message}</p>}
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700 font-semibold mb-2" htmlFor="phone">
+                Phone
+              </label>
+              <input
+                {...register('phone', {
+                  required: 'Phone number is required',
+                  pattern: {
+                    value: /^[0-9]{10,15}$/,
+                    message: 'Enter a valid phone number',
+                  },
+                })}
+                id="phone"
+                type="tel"
+                placeholder="1234567890"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              {errors.phone && <p className="text-red-500 mt-1">{errors.phone.message}</p>}
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700 font-semibold mb-2" htmlFor="arrivalDate">
+                Arrival Date
+              </label>
+              <input
+                {...register('arrivalDate', { required: 'Arrival date is required' })}
+                id="arrivalDate"
+                type="date"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              {errors.arrivalDate && <p className="text-red-500 mt-1">{errors.arrivalDate.message}</p>}
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700 font-semibold mb-2" htmlFor="guests">
+                No. of Guests
+              </label>
+              <input
+                {...register('guests', {
+                  required: 'Please specify the number of guests',
+                  min: { value: 1, message: 'At least 1 guest required' },
+                })}
+                id="guests"
+                type="number"
+                placeholder="1"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              {errors.guests && <p className="text-red-500 mt-1">{errors.guests.message}</p>}
+            </div>
           </div>
 
-          <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2" htmlFor="lastName">
-              Last Name
-            </label>
-            <input
-              {...register('lastName', { required: 'Last name is required' })}
-              id="lastName"
-              placeholder="Doe"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {errors.lastName && <p className="text-red-500 mt-1">{errors.lastName.message}</p>}
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2" htmlFor="email">
-              Email
-            </label>
-            <input
-              {...register('email', {
-                required: 'Email is required',
-                pattern: {
-                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                  message: 'Enter a valid email address',
-                },
-              })}
-              id="email"
-              type="email"
-              placeholder="john.doe@example.com"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {errors.email && <p className="text-red-500 mt-1">{errors.email.message}</p>}
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2" htmlFor="phone">
-              Phone
-            </label>
-            <input
-              {...register('phone', {
-                required: 'Phone number is required',
-                pattern: {
-                  value: /^[0-9]{10,15}$/,
-                  message: 'Enter a valid phone number',
-                },
-              })}
-              id="phone"
-              type="tel"
-              placeholder="1234567890"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {errors.phone && <p className="text-red-500 mt-1">{errors.phone.message}</p>}
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2" htmlFor="arrivalDate">
-              Arrival Date
-            </label>
-            <input
-              {...register('arrivalDate', { required: 'Arrival date is required' })}
-              id="arrivalDate"
-              type="date"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {errors.arrivalDate && <p className="text-red-500 mt-1">{errors.arrivalDate.message}</p>}
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2" htmlFor="guests">
-              No. of Guests
-            </label>
-            <input
-              {...register('guests', {
-                required: 'Please specify the number of guests',
-                min: { value: 1, message: 'At least 1 guest required' },
-              })}
-              id="guests"
-              type="number"
-              placeholder="1"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {errors.guests && <p className="text-red-500 mt-1">{errors.guests.message}</p>}
-          </div>
-
+          {/* Full width message field */}
           <div className="mb-6">
             <label className="block text-gray-700 font-semibold mb-2" htmlFor="message">
               Message
@@ -189,4 +204,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default BookingForm;
